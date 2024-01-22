@@ -51,12 +51,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 46,
+            height: 26,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.red[700],
-              onPrimary: Colors.white,
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.red,
               minimumSize: const Size(157, 57),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -75,16 +75,28 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text("Skip"),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/third');
+                },
+                child: Text(
+                  'Skip',
+                  style: TextStyle(color: Colors.red),
+                ),
+              ),
               const SizedBox(
                 width: 8,
               ),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.red[700],
-              ),
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/second');
+                  },
+                  icon: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.red,
+                  ))
             ],
           )
         ],

@@ -1,12 +1,15 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({Key? key}) : super(key: key);
 
+  final int pageLength = 2;
+  final double currentIndexPage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO: ShowModalBottomSheet
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -23,12 +26,13 @@ class SecondScreen extends StatelessWidget {
             width: 195,
             height: 58,
             child: Text(
-              "Select the Favorities Menu",
+              "Select the Favorites Menu",
               style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Avenir'),
+                color: Colors.black,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Avenir',
+              ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -39,12 +43,13 @@ class SecondScreen extends StatelessWidget {
             width: 191,
             height: 58,
             child: Text(
-              "Now eat well, don't leave the house,You can choose your favorite food only with one click",
+              "Now eat well, don't leave the house. You can choose your favorite food only with one click",
               style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                  fontFamily: 'Avenir'),
+                color: Colors.black,
+                fontSize: 12,
+                fontWeight: FontWeight.w300,
+                fontFamily: 'Avenir',
+              ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -52,17 +57,58 @@ class SecondScreen extends StatelessWidget {
             height: 46,
           ),
           ElevatedButton(
+            onPressed: () {
+              showModalBottomSheet<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.9,
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(36.0),
+                                child: Container(
+                                  margin: const EdgeInsets.only(top: 12),
+                                  alignment: Alignment.center,
+                                  width: 76,
+                                  height: 34,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.red[100],
+                                  ),
+                                  child: const Text(
+                                    "Popular",
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontFamily: 'Avenir',
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
             style: ElevatedButton.styleFrom(
               primary: Colors.red[700],
-              onPrimary: Colors.white,
               minimumSize: const Size(157, 57),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/third');
-            },
             child: const Text(
               'Next',
               style: TextStyle(
@@ -72,19 +118,9 @@ class SecondScreen extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text("Skip"),
-              const SizedBox(
-                width: 8,
-              ),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                color: Colors.red[700],
-              ),
-            ],
-          )
+          const SizedBox(
+            height: 26,
+          ),
         ],
       ),
     );
