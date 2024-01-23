@@ -1,11 +1,21 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
   const SecondScreen({Key? key}) : super(key: key);
+  @override
+  State<SecondScreen> createState() => _SecondScreenState();
+}
 
-  final int pageLength = 2;
-  final double currentIndexPage = 0;
+class _SecondScreenState extends State<SecondScreen> {
+  int selectedIndex = 0;
+  List<Map> screens = [
+    {
+      "title": "Create Account",
+    },
+    {
+      "title": "Sign In",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,47 +73,66 @@ class SecondScreen extends StatelessWidget {
                 builder: (BuildContext context) {
                   return Container(
                     height: MediaQuery.of(context).size.height * 0.9,
+                    padding: const EdgeInsets.all(16.0),
                     color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(36.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            for (var i = 0; i < screens.length; i++)
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selectedIndex = i;
+                                  });
+                                },
                                 child: Container(
-                                  margin: const EdgeInsets.only(top: 12),
-                                  alignment: Alignment.center,
-                                  width: 76,
-                                  height: 34,
+                                  margin: const EdgeInsets.only(right: 16),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16, vertical: 8),
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.red[100],
+                                    border: Border(
+                                      bottom: BorderSide(
+                                        color: selectedIndex == i
+                                            ? Colors.red
+                                            : Colors
+                                                .transparent, // Seçilen öğenin altını çiz
+                                        width: 2.0,
+                                      ),
+                                    ),
                                   ),
-                                  child: const Text(
-                                    "Popular",
+                                  child: Text(
+                                    screens[i]["title"] != null
+                                        ? screens[i]["title"].toString()
+                                        : "Unknown Title",
                                     style: TextStyle(
-                                      color: Colors.red,
-                                      fontFamily: 'Avenir',
-                                      fontSize: 12,
+                                      color: selectedIndex == i
+                                          ? Colors.red
+                                          : Colors.black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "avenir",
                                     ),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   );
                 },
               );
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.red[700],
+              backgroundColor: Colors.red,
               minimumSize: const Size(157, 57),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -115,6 +144,7 @@ class SecondScreen extends StatelessWidget {
                 fontFamily: "BentonSans",
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
+                color: Colors.white,
               ),
             ),
           ),
