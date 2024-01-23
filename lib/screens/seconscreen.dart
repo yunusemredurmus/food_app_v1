@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({Key? key}) : super(key: key);
+
   @override
   State<SecondScreen> createState() => _SecondScreenState();
 }
@@ -71,62 +72,63 @@ class _SecondScreenState extends State<SecondScreen> {
               showModalBottomSheet<void>(
                 context: context,
                 builder: (BuildContext context) {
-                  return Container(
-                    height: MediaQuery.of(context).size.height * 0.9,
-                    padding: const EdgeInsets.all(16.0),
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                  return StatefulBuilder(
+                    builder: (context, setState) {
+                      return Container(
+                        height: MediaQuery.of(context).size.height * 0.9,
+                        padding: const EdgeInsets.all(16.0),
+                        color: Colors.white,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            for (var i = 0; i < screens.length; i++)
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    selectedIndex = i;
-                                  });
-                                },
-                                child: Container(
-                                  margin: const EdgeInsets.only(right: 16),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 8),
-                                  decoration: BoxDecoration(
-                                    border: Border(
-                                      bottom: BorderSide(
-                                        color: selectedIndex == i
-                                            ? Colors.red
-                                            : Colors
-                                                .transparent, // Seçilen öğenin altını çiz
-                                        width: 2.0,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                for (var i = 0; i < screens.length; i++)
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        selectedIndex = i;
+                                      });
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.only(right: 16),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16, vertical: 8),
+                                      decoration: BoxDecoration(
+                                        border: Border(
+                                          bottom: BorderSide(
+                                            color: selectedIndex == i
+                                                ? Colors.red
+                                                : Colors.transparent,
+                                            width: 2.0,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        screens[i]['title']!,
+                                        style: TextStyle(
+                                          fontFamily: "BentonSans",
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          color: selectedIndex == i
+                                              ? Colors.red
+                                              : Colors.black,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  child: Text(
-                                    screens[i]["title"] != null
-                                        ? screens[i]["title"].toString()
-                                        : "Unknown Title",
-                                    style: TextStyle(
-                                      color: selectedIndex == i
-                                          ? Colors.red
-                                          : Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "avenir",
-                                    ),
-                                  ),
+                                SizedBox(
+                                  width: 16,
                                 ),
-                              ),
-                            SizedBox(
-                              width: 16,
-                            ),
+                              ],
+                            )
                           ],
-                        )
-                      ],
-                    ),
+                        ),
+                      );
+                    },
                   );
                 },
               );
