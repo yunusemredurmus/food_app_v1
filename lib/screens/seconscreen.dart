@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app_v1/screens/widget/app_text_field.dart';
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class _SecondScreenState extends State<SecondScreen> {
       "title": "Sign In",
     },
   ];
+
+  TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -120,11 +123,155 @@ class _SecondScreenState extends State<SecondScreen> {
                                       ),
                                     ),
                                   ),
-                                SizedBox(
-                                  width: 16,
-                                ),
                               ],
-                            )
+                            ),
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            if (selectedIndex == 0)
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text("Full Name",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontFamily: 'Avenir')),
+                                    ],
+                                  ),
+                                  AppTextField(
+                                    controller: nameController,
+                                    hintText: "Full Name",
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Text("Email",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontFamily: 'Avenir')),
+                                    ],
+                                  ),
+                                  const AppTextField(hintText: 'Email'),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Text(
+                                        "Password",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontFamily: 'Avenir'),
+                                      ),
+                                    ],
+                                  ),
+                                  const AppTextField(hintText: 'Password'),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/third');
+                                    },
+                                    child: const Text(
+                                      'Sign Up',
+                                      style: TextStyle(
+                                        fontFamily: "BentonSans",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.red,
+                                      minimumSize: const Size(157, 57),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            if (selectedIndex == 1)
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Row(
+                                    children: [
+                                      Text("Email",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                              fontFamily: 'Avenir')),
+                                    ],
+                                  ),
+                                  const AppTextField(hintText: 'Email'),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Text(
+                                        "Password",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontFamily: 'Avenir'),
+                                      ),
+                                    ],
+                                  ),
+                                  const AppTextField(hintText: 'Password'),
+                                  const SizedBox(
+                                    height: 36,
+                                  ),
+                                  const Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "Forgot Password?",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontFamily: 'Avenir'),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/third');
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.red,
+                                      minimumSize: const Size(157, 57),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      'Sign In',
+                                      style: TextStyle(
+                                        fontFamily: "BentonSans",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                ],
+                              ),
                           ],
                         ),
                       );
