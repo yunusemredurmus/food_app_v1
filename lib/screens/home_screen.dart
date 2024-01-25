@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/third');
                 },
-                child: Text(
+                child: const Text(
                   'Skip',
                   style: TextStyle(color: Colors.red),
                 ),

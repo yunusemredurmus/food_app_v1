@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  int index = 0;
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          Image(
+          const Image(
             image: AssetImage('assets/images/Pattern.png'),
             width: double.infinity,
             fit: BoxFit.cover,
             height: 30,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +35,7 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 311,
             height: 36,
             child: TextField(
@@ -46,10 +53,10 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          ClipRRect(
+          const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             child: Image(
               image: AssetImage('assets/images/menu.png'),
@@ -58,7 +65,72 @@ class LoginScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          const SizedBox(
+            height: 16,
+          ),
+          SizedBox(
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _buildMenuItem(
+                  Icons.food_bank,
+                  'Yemek',
+                  0,
+                ),
+                _buildMenuItem(Icons.local_pizza, 'Pizza', 1),
+                _buildMenuItem(Icons.local_drink, 'Drink', 2),
+                _buildMenuItem(Icons.dangerous, 'Hot Dog', 3),
+              ],
+            ),
+          ),
+          // const SizedBox(
+          //   height: 16,
+          // ),
+          // SizedBox(height: 250, child: ListView(Axis.horizontal, children: [
+
+          // ]))
         ],
+      ),
+    );
+  }
+
+  Widget _buildMenuItem(IconData icon, String label, int itemIndex) {
+    bool isSelected = index == itemIndex;
+
+    return InkWell(
+      onTap: () {
+        setState(() {
+          index = itemIndex;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: isSelected ? Colors.red[500] : Colors.transparent,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: isSelected ? Colors.red : Colors.grey.withOpacity(0.3),
+            ),
+          ),
+          height: 100,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Icon(
+                  icon,
+                  size: 30,
+                ),
+                const SizedBox(height: 8),
+                Text(label),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
