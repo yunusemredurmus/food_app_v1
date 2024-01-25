@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 16,
           ),
           SizedBox(
-            height: 100,
+            height: 41,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
@@ -84,6 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
+
           // const SizedBox(
           //   height: 16,
           // ),
@@ -104,32 +105,29 @@ class _LoginScreenState extends State<LoginScreen> {
           index = itemIndex;
         });
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: isSelected ? Colors.red[500] : Colors.transparent,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: isSelected ? Colors.red : Colors.grey.withOpacity(0.3),
-            ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 23),
+        margin: const EdgeInsets.only(right: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.red[500] : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isSelected ? Colors.red : Colors.grey.withOpacity(0.3),
           ),
-          height: 100,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              textBaseline: TextBaseline.alphabetic,
-              children: [
-                Icon(
-                  icon,
-                  size: 30,
-                ),
-                const SizedBox(height: 8),
-                Text(label),
-              ],
+        ),
+        height: 41,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Icon(
+              icon,
+              size: 30,
             ),
-          ),
+            const SizedBox(height: 8),
+            Text(label),
+          ],
         ),
       ),
     );
