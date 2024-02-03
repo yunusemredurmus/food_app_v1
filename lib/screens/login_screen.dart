@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_v1/constant/app_constant.dart';
 import 'package:food_app_v1/dto/product.dart';
-import 'package:food_app_v1/screens/ProductDetailPage.dart';
+import 'package:food_app_v1/screens/prodcut_detail_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
