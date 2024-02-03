@@ -5,91 +5,81 @@ class AppConstant {
     Product(
       id: 1,
       name: 'CheeseBurger',
-      description: 'Cheedar Soslu Hamburger',
+      description: 'A delicious cheeseburger with cheddar sauce. Made with high-quality beef patty, topped with melted cheddar cheese, fresh lettuce, ripe tomatoes, onions, and our special sauce. Served in a toasted bun.',
       price: 10.99,
-      image:
-          'https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e-768x768.jpeg',
+      image: 'https://recipes.net/wp-content/uploads/2023/05/hardees-double-cheeseburger-recipe_d48b79ef43b714e98a3ad95a7ab9e12e-768x768.jpeg',
       rating: 4.5,
     ),
     Product(
       id: 2,
       name: 'ChickenWrap',
-      description: 'Tavuklu Dürüm',
+      description: 'A flavorful Chicken Wrap (Tavuklu Dürüm) with tender chicken, fresh veggies, and our signature sauce, all wrapped in a soft and warm tortilla. A perfect combination of taste and convenience.',
       price: 8.99,
-      image:
-          'https://sailorbailey.com/wp-content/uploads/2023/04/Cajun-Chicken-Wrap.jpg',
+      image: 'https://sailorbailey.com/wp-content/uploads/2023/04/Cajun-Chicken-Wrap.jpg',
       rating: 4.2,
     ),
     Product(
       id: 3,
       name: 'VegetarianPizza',
-      description: 'Vejetaryen Pizza',
+      description: 'A mouthwatering Vegetarian Pizza (Vejetaryen Pizza) with a crispy crust, rich tomato sauce, and a variety of fresh vegetables. Topped with melted cheese, it is a delightful choice for pizza lovers.',
       price: 12.99,
-      image:
-          'https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg',
+      image: 'https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg',
       rating: 4.8,
     ),
     Product(
       id: 4,
       name: 'PastaCarbonara',
-      description: 'Pasta Carbonara',
+      description: 'Indulge in the classic Pasta Carbonara. A creamy and flavorful pasta dish made with al dente spaghetti, eggs, pancetta, Parmesan cheese, and black pepper. An Italian favorite that never disappoints.',
       price: 11.49,
-      image:
-          'https://static01.nyt.com/images/2021/02/14/dining/carbonara-horizontal/carbonara-horizontal-articleLarge-v2.jpg',
+      image: 'https://static01.nyt.com/images/2021/02/14/dining/carbonara-horizontal/carbonara-horizontal-articleLarge-v2.jpg',
       rating: 4.6,
     ),
     Product(
       id: 5,
       name: 'SalmonSushi',
-      description: 'Somonlu Sushi',
+      description: 'Experience the freshness of Salmon Sushi (Somonlu Sushi). Savor the combination of premium sushi rice, fresh salmon, and a touch of wasabi, all wrapped in seaweed. A delightful treat for sushi enthusiasts.',
       price: 15.99,
-      image:
-          'https://getfish.com.au/cdn/shop/articles/shutterstock_606590933a.jpg?v=1694621057',
+      image: 'https://getfish.com.au/cdn/shop/articles/shutterstock_606590933a.jpg?v=1694621057',
       rating: 4.9,
     ),
     Product(
       id: 6,
       name: 'ChocolateCake',
-      description: 'Çikolatalı Pasta',
+      description: 'Indulge your sweet tooth with a decadent Chocolate Cake (Çikolatalı Pasta). Moist layers of chocolate cake topped with rich chocolate ganache. A heavenly dessert for chocolate lovers.',
       price: 9.99,
-      image:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMvloDJQQUtV0y8PHTrFi2ow_ks0q9S8uzPQ&usqp=CAU',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMvloDJQQUtV0y8PHTrFi2ow_ks0q9S8uzPQ&usqp=CAU',
       rating: 4.3,
     ),
     Product(
       id: 7,
       name: 'CesarSalad',
-      description: 'Cesar Salata',
+      description: 'Enjoy a classic Cesar Salad (Cesar Salata) with crisp romaine lettuce, crunchy croutons, Parmesan cheese, and a tangy Caesar dressing. A refreshing and satisfying salad for a light and healthy meal.',
       price: 7.99,
-      image:
-          'https://www.recipetineats.com/wp-content/uploads/2016/05/Caesar-Salad_7-SQ.jpg',
+      image: 'https://www.recipetineats.com/wp-content/uploads/2016/05/Caesar-Salad_7-SQ.jpg',
       rating: 4.0,
     ),
     Product(
       id: 8,
       name: 'MangoSmoothie',
-      description: 'Mango Smoothie',
+      description: 'Cool off with a refreshing Mango Smoothie. Blended with ripe mangoes, yogurt, and a hint of honey, this smoothie is a tropical delight. Perfect for a quick and nutritious pick-me-up.',
       price: 6.49,
-      image:
-          'https://elavegan.com/wp-content/uploads/2023/07/tropical-mango-pineapple-smoothie-in-2-glasses-with-straws.jpg',
+      image: 'https://elavegan.com/wp-content/uploads/2023/07/tropical-mango-pineapple-smoothie-in-2-glasses-with-straws.jpg',
       rating: 4.7,
     ),
     Product(
       id: 9,
       name: 'BBQChickenWings',
-      description: 'BBQ Tavuk Kanatları',
+      description: 'Satisfy your cravings with succulent BBQ Chicken Wings (BBQ Tavuk Kanatları). These wings are seasoned to perfection, grilled to a smoky flavor, and glazed with our signature barbecue sauce.',
       price: 13.99,
-      image:
-          'https://dinnerthendessert.com/wp-content/uploads/2019/11/BBQ-Chicken-Wings-4x3.jpg',
+      image: 'https://dinnerthendessert.com/wp-content/uploads/2019/11/BBQ-Chicken-Wings-4x3.jpg',
       rating: 4.4,
     ),
     Product(
       id: 10,
       name: 'GreekSalad',
-      description: 'Grek Salata',
+      description: 'Experience the flavors of Greece with our Greek Salad (Grek Salata). Fresh cucumbers, tomatoes, olives, and feta cheese tossed in a light vinaigrette. A delightful and healthy salad option.',
       price: 8.99,
-      image:
-          'https://www.sainsburysmagazine.co.uk/uploads/media/1800x1800/03/14563-ultimate-greek-salad.jpg?v=1-0',
+      image: 'https://www.sainsburysmagazine.co.uk/uploads/media/1800x1800/03/14563-ultimate-greek-salad.jpg?v=1-0',
       rating: 4.1,
     ),
   ];

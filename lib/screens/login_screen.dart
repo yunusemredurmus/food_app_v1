@@ -152,7 +152,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           Text(
-                            product.description,
+                            product.description.length > 10
+                                ? '${product.description.substring(0, 30)}...'
+                                : product.description,
                             style: const TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
@@ -201,18 +203,22 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 12,
             ),
-            const SizedBox(
-              width: 350,
-              child: Row(
+            Container(
+              padding: EdgeInsets.all(8),
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Populer Meal Menu",
-                    style: TextStyle(fontSize: 17),
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                   ),
                   Row(
                     children: [
-                      Text("See All", style: TextStyle(fontSize: 17)),
+                      Text("See All",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black)),
                       SizedBox(
                         width: 8,
                       ),
@@ -228,6 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
               scrollDirection: Axis.vertical,
               itemCount: AppConstant.products.length,
               itemBuilder: (context, index) {
@@ -262,7 +269,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           Column(
                             children: [
                               Text(product.name),
-                              Text(product.description),
+                              Text(
+                                product.description.length > 10
+                                    ? '${product.description.substring(0, 30)}...'
+                                    : product.description,
+                              ),
                             ],
                           ),
                           Text(
@@ -311,9 +322,15 @@ class _LoginScreenState extends State<LoginScreen> {
             Icon(
               icon,
               size: 30,
+              color: isSelected ? Colors.white : Colors.black,
             ),
             const SizedBox(height: 8),
-            Text(label),
+            Text(label ?? '',
+                style: TextStyle(
+                  color: isSelected ? Colors.white : Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                )),
           ],
         ),
       ),
