@@ -31,13 +31,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Icon(Icons.home),
             label: "Ana Sayfa",
           ),
+      
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: "Ara",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
-            label: "Kitaplığın",
+            icon: Icon(Icons.shop),
+            label: "Sepetim",
           ),
         ],
       ),

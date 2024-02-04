@@ -12,7 +12,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   int index = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Text(
                             product.description.length > 10
-                                ? '${product.description.substring(0, 30)}...'
+                                ? '${product.description.substring(0, 20)}...'
                                 : product.description,
                             style: const TextStyle(
                               fontSize: 12,
