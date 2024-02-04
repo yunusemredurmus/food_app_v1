@@ -18,6 +18,8 @@ class ProductDetailPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
+            backgroundColor: Colors.red,
+            iconTheme: const IconThemeData(color: Colors.white),
           ),
           SliverPadding(
             padding: const EdgeInsets.all(16.0),

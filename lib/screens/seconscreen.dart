@@ -10,6 +10,7 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   int selectedIndex = 0;
+  bool isLoading = false;
   List<Map> screens = [
     {
       "title": "Create Account",
@@ -20,6 +21,7 @@ class _SecondScreenState extends State<SecondScreen> {
   ];
 
   TextEditingController nameController = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +214,8 @@ class _SecondScreenState extends State<SecondScreen> {
                                               fontFamily: 'Avenir')),
                                     ],
                                   ),
-                                  const AppTextField(hintText: 'Email'),
+                                  const TextField(
+                                      textInputAction: TextInputAction.join),
                                   const SizedBox(
                                     height: 16,
                                   ),
@@ -227,7 +230,10 @@ class _SecondScreenState extends State<SecondScreen> {
                                       ),
                                     ],
                                   ),
-                                  const AppTextField(hintText: 'Password'),
+                                  TextField(
+                                    obscureText: true,
+                                    controller: passController,
+                                  ),
                                   const SizedBox(
                                     height: 36,
                                   ),
